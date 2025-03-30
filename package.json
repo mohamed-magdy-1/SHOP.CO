@@ -9,9 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coreui/react-pro": "^5.12.0",
+    "@stripe/react-stripe-js": "^3.4.0",
+    "@stripe/stripe-js": "^6.0.0",
+    "axios": "^1.8.3",
+    "dompurify": "^3.2.4",
+    "js-cookie": "^3.0.5",
+    "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.1.7"
+    "react-gtm-module": "^2.0.11",
+    "react-icons": "^5.5.0",
+    "react-slick": "^0.30.3",
+    "react-toastify": "^11.0.5",
+    "slick-carousel": "^1.8.1",
+    "stripe": "^17.7.0"
   },
   "devDependencies": {
     "postcss": "^8",

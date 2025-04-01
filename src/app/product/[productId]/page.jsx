@@ -50,7 +50,7 @@ useEffect(()=>{
     try {
       const res = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products/${params.productId}`, {
         headers: {
-            "Authorization": `Bearer e896b3b3835ed3f674a0ffa22f418e7d21e9bfa28de5a24c013f9f6ff042f40ef78589f0292071d4235ac240dce189d83b160a9513224b5cbff40bfab0fbea5784cbc69a0236323bd4af911f903e188a6efba392eff08232041fcb04639ecd7f62d7a7ad887fddd859438a41246a7cb6ec32e7b222b9701c18958de47fbec109`,
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
             "Content-Type": "application/json",
         },})
       setData(res.data.data || []); 

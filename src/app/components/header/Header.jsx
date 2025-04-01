@@ -41,7 +41,7 @@ export default function Header() {
             const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products?filters[title][$contains]=${query}&pagination[pageSize]=7`, {
                 method: "GET",
                 headers: {
-                    "Authorization": `Bearer e896b3b3835ed3f674a0ffa22f418e7d21e9bfa28de5a24c013f9f6ff042f40ef78589f0292071d4235ac240dce189d83b160a9513224b5cbff40bfab0fbea5784cbc69a0236323bd4af911f903e188a6efba392eff08232041fcb04639ecd7f62d7a7ad887fddd859438a41246a7cb6ec32e7b222b9701c18958de47fbec109`,
+                    "Authorization": `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
                     "Content-Type": "application/json",
                 },
                 cache: "no-store",
@@ -106,7 +106,7 @@ export default function Header() {
                                             data.length > 0 ? (
                                                 data.map((product) => (
                                                     <Link
-                                                        href={`http://localhost:3000/product/${product.slug}`}
+                                                        href={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/product/${product.slug}`}
                                                         key={product.id}
                                                         className="p-2 hover:bg-gray-100 block"
                                                     >
@@ -124,7 +124,7 @@ export default function Header() {
 
                         <div className="icons-header flex items-center justify-end gap-1">
                             <CiSearch className="flex text-3xl cursor-pointer hover:scale-110 duration-300 ease-in-out lg:hidden" />
-                            <Link href={`http://localhost:3000/cart`} className="flex cursor-pointer hover:scale-110 duration-300 ease-in-out relative">
+                            <Link href={`${process.env.NEXT_PUBLIC_STRAPI_URL}/cart`} className="flex cursor-pointer hover:scale-110 duration-300 ease-in-out relative">
                                 <span className="bg-black w-[17px] h-[17px] left-[15px] absolute text-white flex justify-center items-center text-[11px] rounded-full">
                                     { num || 0}
                                 </span>

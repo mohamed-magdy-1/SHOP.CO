@@ -19,7 +19,7 @@ let  [openClose,setOpenClose] = useState(true);
 let  [applyFilter,setApplyFilter] = useState(true);
 
 function buildStrapiUrl() {
-  let url = `http://localhost:1337/api/products?populate=*`;
+  let url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products?populate=*`;
   if (dressStyle) {
     url += `&filters[categories][title][$in]=${encodeURIComponent(dressStyle)}`;
   }

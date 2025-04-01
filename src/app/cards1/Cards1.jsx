@@ -8,7 +8,7 @@ let data =[]
 
 
   try {
-    const res = await fetch(`http://localhost:1337/api/products?populate=*&pagination[pageSize]=4`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products?populate=*&pagination[pageSize]=4`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${process.env.TOKEN_SECRET}`,

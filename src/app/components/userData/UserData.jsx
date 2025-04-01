@@ -17,7 +17,7 @@ export default function UserData() {
       console.log('No token found. Please log in.');
     } else {
       try {
-        const response = await axios.get('http://localhost:1337/api/users/me', {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/users/me`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         setUser(response.data);

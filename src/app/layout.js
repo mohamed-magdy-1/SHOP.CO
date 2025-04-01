@@ -1,7 +1,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Alert from "./components/alert/Alert";
+// import Alert from "./components/alert/Alert";
 import Header from "./components/header/Header";
 import Footer from "./footer/footer";
 import { UserDataProvider } from "./context/userContext.jsx";

@@ -49,7 +49,7 @@ async function fetchDataPrice() {
     const updatedPrices = await Promise.all(
       cartProduct.map(async (item) => {
         const response = await fetch(
-          `http://localhost:1337/api/products?filters[title][$eq]=${item.title}&fields=price&fields=discount`,
+          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/products?filters[title][$eq]=${item.title}&fields=price&fields=discount`,
           {
             method: "GET",
             headers: {

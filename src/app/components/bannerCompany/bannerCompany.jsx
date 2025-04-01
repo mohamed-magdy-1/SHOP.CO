@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 
 export default async function BannerBlack() {
-  const res = await fetch("http://localhost:1337/api/banner-company?populate=*", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/banner-company?populate=*`, {
     method: "GET",
     headers: {
       "Authorization": `Bearer ${process.env.TOKEN_SECRET}`,
@@ -26,7 +26,7 @@ export default async function BannerBlack() {
             <Image
               key={i}
               className="w-[150px] h-[35px] md:my-10 object-contain"
-              src={"http://localhost:1337" + imgObj?.url}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}` + imgObj?.url}
               alt={`Company Logo ${i + 1}`}
               width={150} 
               height={35}

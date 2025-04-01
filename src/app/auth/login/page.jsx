@@ -72,6 +72,7 @@ export default function login() {
               <Link href={'/auth/register'} >register</Link>
       </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }

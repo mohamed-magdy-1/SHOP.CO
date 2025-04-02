@@ -3,12 +3,15 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
+import { useCartNum } from '../context/cartNun';
 
 export default function Success() {
-  useEffect(() => {
+const { num, setNum } = useCartNum();
+useEffect(() => {
     toast.success('Payment completed successfully!');
     localStorage.removeItem('cartProducts');
-  }, []);
+    setNum(0)
+}, []);
 
 return (
 <div className="container m-auto flex mt-14 justify-center items-center">

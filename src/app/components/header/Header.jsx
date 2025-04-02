@@ -11,10 +11,9 @@ import UserData from "../userData/UserData";
 
 export default function Header() {
     const { num, setNum } = useCartNum();
-    const [cartProduct, setCartProduct] = useState([]); // حالة لتخزين CartProduct
+    const [cartProduct, setCartProduct] = useState([]); 
     const [search, setSearch] = useState('');
     const [data, setData] = useState([]);
-    const [numProduct, setNumProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const data1 = [
         {
@@ -109,7 +108,7 @@ export default function Header() {
                                             data.length > 0 ? (
                                                 data.map((product) => (
                                                     <Link
-                                                        href={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/product/${product.slug}`}
+                                                        href={`https://shop-co-swart-rho.vercel.app/product/${product.slug}`}
                                                         key={product.id}
                                                         className="p-2 hover:bg-gray-100 block"
                                                     >

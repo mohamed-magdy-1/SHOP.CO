@@ -7,7 +7,7 @@ import { IoPricetagOutline } from "react-icons/io5";
 import Link from 'next/link';
 import { useCartNum } from '../context/cartNun';
 import { TbCreditCardPay } from "react-icons/tb";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export default function Page() {
     const { num, setNum } = useCartNum();
@@ -159,7 +159,6 @@ const [cartProducts, setCartProducts] = useState(() => {
                     )}
                 </div>
             </div>
-            <ToastContainer />
         </div>
     );
 }

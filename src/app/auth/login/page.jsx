@@ -1,5 +1,5 @@
 'use client';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
@@ -82,7 +82,6 @@ export default function login() {
               <Link href={'/auth/register'} >register</Link>
       </div>
       </div>
-      <ToastContainer />
     </div>
   )
 }

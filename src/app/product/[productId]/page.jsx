@@ -8,7 +8,7 @@ import { FiPlus ,FiMinus } from "react-icons/fi";
 import ReviewsProduct from "../reviewsProduct/reviewsProduct";
 import { IoMdCheckmark } from "react-icons/io";
 import { useParams } from "next/navigation";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import { useCartNum } from "@/app/context/cartNun";
 import axios from "axios";
 
@@ -300,7 +300,6 @@ if(toastSH){
       <ReviewsProduct />
       {/* <Cards data={data1} title={'You might also like'} button={false}/> */}
       <Footer />
-      <ToastContainer />
     </div>
   );
 }

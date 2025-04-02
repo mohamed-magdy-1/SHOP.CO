@@ -1,5 +1,5 @@
 'use client';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -128,7 +128,6 @@ export default function Register() {
           <Link href="/auth/login">I already have an account: Log In</Link>
         </div>
       </div>
-      <ToastContainer /> 
     </div>
   );
 }

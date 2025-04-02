@@ -96,7 +96,7 @@ useEffect(() => {
       userId: 'user_123',
       totalOrderAmount,
     };
-
+console.log(orderData);
 
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/orders`,{

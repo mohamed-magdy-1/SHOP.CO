@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Register() {
   const { setUser } = useUserData(); 
+  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
   const [token, setToken] = useState(Cookies.get("token")); // إدارة الـ token في حالة
 
@@ -48,6 +50,7 @@ export default function Register() {
     };
 
     try {
+      setLoading(true)
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local/register`,
         dataRegister
@@ -59,8 +62,12 @@ export default function Register() {
         setUser(response.data.user);
         router.push('/');
       }
+      setLoading(false)
     } catch (error) {
       toast.error(error.response?.data?.error?.message || 'Registration failed!');
+      setLoading(false)
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -111,7 +118,10 @@ export default function Register() {
             required
           />
           <button className="bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition">
-            Register
+            
+            {
+              loading ? "loading..." : "Register"
+            }
           </button>
         </form>
         <div className="text-center text-sm p-2">

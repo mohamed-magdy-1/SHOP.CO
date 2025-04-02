@@ -11,6 +11,8 @@ import { useUserData } from '@/app/context/userContext';
 export default function forgotPassword() {
   //   const { user, setUser } = useUserData();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
   // const token = Cookies.get("token");
 
   // useEffect(() => {
@@ -40,12 +42,17 @@ export default function forgotPassword() {
       };
   
       try {
+        setLoading(true)
         const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/forgot-password`, dataRegister);
         if (response.status === 200) {
           toast.success('send to your email successful!');
           router.push('/auth/login');
         }
+        setLoading(false)
       } catch (error) {
+        setLoading(false)
+      }finally{
+        setLoading(false)
       }
     }
 
@@ -56,7 +63,9 @@ export default function forgotPassword() {
       <form onSubmit={sendLogin} className='flex pb-3 gap-3 flex-col justify-center items-center'>
         <input name="email" value={formData.email} onChange={handleChange} className='border w-full rounded-lg outline-none p-2' type='email' placeholder='email'/>
           <button className='bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition'>
-          send
+          {
+              loading ? "loading..." : "send"
+            }
           </button>
       </form>
       </div>

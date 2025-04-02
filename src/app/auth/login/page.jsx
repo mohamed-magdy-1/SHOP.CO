@@ -8,6 +8,8 @@ import Cookies from 'js-cookie';
 import { useUserData } from '@/app/context/userContext';
 export default function login() {
     const { user, setUser } = useUserData();
+      const [loading, setLoading] = useState(false);
+    
   const router = useRouter();
   const token = Cookies.get("token");
 
@@ -40,6 +42,7 @@ export default function login() {
       };
   
       try {
+        setLoading(true)
         const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local`, dataRegister);
         console.log(response.data);
         if (response.status === 200) {
@@ -48,9 +51,13 @@ export default function login() {
           setUser(response.data.user)
           router.push('/');
         }
+        setLoading(false)
       } catch (error) {
         console.log(error);
         toast.error(error.response?.data?.error?.message || 'Log In failed!');
+        setLoading(false)
+      }finally{
+        setLoading(false)
       }
     }
 
@@ -62,7 +69,10 @@ export default function login() {
         <input name="email" value={formData.email} onChange={handleChange} className='border w-full rounded-lg outline-none p-2' type='email' placeholder='email'/>
         <input name="password" value={formData.password} onChange={handleChange} className='border w-full rounded-lg outline-none p-2' type='password' placeholder='password'/>
           <button className='bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition'>
-            Log In
+            
+            {
+              loading ? "loading..." : "Log In"
+            }
           </button>
       </form>
       <div className='text-blue-500 border-b-2 pb-1'>

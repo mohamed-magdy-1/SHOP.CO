@@ -11,6 +11,7 @@ import UserData from "../userData/UserData";
 
 export default function Header() {
     const { num, setNum } = useCartNum();
+    console.log(num);
     const [cartProduct, setCartProduct] = useState([]); 
     const [search, setSearch] = useState('');
     const [data, setData] = useState([]);
@@ -28,6 +29,7 @@ export default function Header() {
         if (typeof window !== "undefined") {
             const storedCart = JSON.parse(localStorage.getItem("cartProducts") || "[]");
             setCartProduct(storedCart);
+            setNum(storedCart.length)
         }
     }, []);
 
@@ -108,7 +110,7 @@ export default function Header() {
                                             data.length > 0 ? (
                                                 data.map((product) => (
                                                     <Link
-                                                        href={`https://shop-co-swart-rho.vercel.app/product/${product.slug}`}
+                                                        href={`${process.env.NEXT_PUBLIC_VERCEL_URL}/product/${product.slug}`}
                                                         key={product.id}
                                                         className="p-2 hover:bg-gray-100 block"
                                                     >
@@ -126,9 +128,9 @@ export default function Header() {
 
                         <div className="icons-header flex items-center justify-end gap-1">
                             <CiSearch className="flex text-3xl cursor-pointer hover:scale-110 duration-300 ease-in-out lg:hidden" />
-                            <Link href={`${process.env.NEXT_PUBLIC_STRAPI_URL}/cart`} className="flex cursor-pointer hover:scale-110 duration-300 ease-in-out relative">
+                            <Link href={`${process.env.NEXT_PUBLIC_VERCEL_URL}/cart`} className="flex cursor-pointer hover:scale-110 duration-300 ease-in-out relative">
                                 <span className="bg-black w-[17px] h-[17px] left-[15px] absolute text-white flex justify-center items-center text-[11px] rounded-full">
-                                    { cartProduct.length || 0}
+                                    { num || 0}
                                 </span>
                                 <CiShoppingCart className="text-3xl" />
                             </Link>

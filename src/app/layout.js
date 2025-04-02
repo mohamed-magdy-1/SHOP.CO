@@ -5,9 +5,9 @@ import "./globals.css";
 import Header from "./components/header/Header";
 import Footer from "./footer/footer";
 import { UserDataProvider } from "./context/userContext.jsx";
-import { CartNumProvider } from "./context/cartNun.jsx";
 import { ToastContainer} from 'react-toastify';
 import GTMProvider from "./components/GTMProvider";
+import CartNumProvider from "./context/cartNun";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

@@ -91,7 +91,6 @@ let PriceDiscount  = (num) =>{
   }), [color, size, counter,data]);
   
 
-
   const addToCart = () => {
     setCartProducts((prevCart) => {
       const isExisting = prevCart.some((item) => item.id === newData.id);

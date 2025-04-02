@@ -15,11 +15,11 @@ export default function Page() {
 
 const [cartProducts, setCartProducts] = useState(() => {
 
-  if (typeof window !== "undefined") {
-      const savedCart = localStorage.getItem("cartProducts");
-      return savedCart ? JSON.parse(savedCart) : [];
-  }
-  return [];
+if (typeof window !== "undefined") {
+    const savedCart = localStorage.getItem("cartProducts");
+    return savedCart ? JSON.parse(savedCart) : [];
+}
+return [];
 });
     
 
@@ -45,7 +45,7 @@ const [cartProducts, setCartProducts] = useState(() => {
 
     useEffect(() => {
       localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
-  }, [cartProducts]);
+}, [cartProducts]);
 
     const updateCartItem = (updatedItem) => {
         setCartProducts((prevCart) =>

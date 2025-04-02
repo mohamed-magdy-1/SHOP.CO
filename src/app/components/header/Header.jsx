@@ -11,7 +11,7 @@ import UserData from "../userData/UserData";
 
 export default function Header() {
     const { num, setNum } = useCartNum();
-    console.log(num);
+
     const [cartProduct, setCartProduct] = useState([]); 
     const [search, setSearch] = useState('');
     const [data, setData] = useState([]);

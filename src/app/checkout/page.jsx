@@ -87,7 +87,7 @@ useEffect(() => {
     setFormData({ ...formData, [name]: value });
   };
   const filteredItems = cartProduct.map(({ imgProduct,priceAmount,price,projectsAmount, ...rest }) => rest);
-console.log(filteredItems);
+
   const handleOrderCreation = async () => {
     setLoading(true);
     const orderData = {
@@ -97,8 +97,11 @@ console.log(filteredItems);
       totalOrderAmount,
     };
 
+
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/orders`, orderData);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/orders`,{
+        headers: { 'Authorization': `Bearer ${token}` }
+      }, orderData);
       setClientSecret(response.data.clientSecret);
       toast.success('data created successfully!');
     } catch (error) {

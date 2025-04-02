@@ -150,7 +150,7 @@ if(toastSH){
                 style={{border: imgIndex == i ? "2px solid black" : "none"}}
                   onClick={()=>setImgIndex(i)}
                   className=" w-full h-full object-cover rounded-2xl"
-                  src={ `${process.env.NEXT_PUBLIC_STRAPI_URL}` + img?.url}
+                  src={img?.url}
                   alt="side-imgs-photo"
                   loading="lazy"
                   width={100}
@@ -168,7 +168,7 @@ if(toastSH){
                 (
                   <Image
                   className=" w-full h-full   rounded-3xl "
-                  src={ `${process.env.NEXT_PUBLIC_STRAPI_URL}` +   data?.imgProduct[imgIndex]?.url}
+                  src={ data?.imgProduct[imgIndex]?.url}
                   alt="pig-img-photo"
                   loading="lazy"
                   width={300}

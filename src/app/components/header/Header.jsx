@@ -72,7 +72,7 @@ useEffect(()=>{
     if(num !== num){
         setNumProduct(num)
     }
-},[num])
+},[])
 
 
 

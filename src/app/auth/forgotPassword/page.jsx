@@ -62,7 +62,7 @@ export default function forgotPassword() {
         <h1 className='text-xl font-extrabold uppercase flex m-2 justify-center items-center '>Password Reset</h1>
       <form onSubmit={sendLogin} className='flex pb-3 gap-3 flex-col justify-center items-center'>
         <input name="email" value={formData.email} onChange={handleChange} className='border w-full rounded-lg outline-none p-2' type='email' placeholder='email'/>
-          <button className='bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition'>
+          <button disabled={loading} className='bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition'>
           {
               loading ? "loading..." : "send"
             }

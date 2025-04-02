@@ -89,7 +89,7 @@ const [cartProducts, setCartProducts] = useState(() => {
                                 <div className="w-[100px] h-[95px] flex justify-center items-center rounded-2xl overflow-hidden bg-[#f0f0f0]">
                                     <Image
                                         className="w-full h-full object-contain"
-                                        src={`${process.env.NEXT_PUBLIC_STRAPI_URL}` + el.imgProduct}
+                                        src={el.imgProduct}
                                         alt="product-img"
                                         loading="lazy"
                                         width={100}

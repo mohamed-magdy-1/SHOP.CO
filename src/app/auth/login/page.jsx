@@ -68,7 +68,7 @@ export default function login() {
       <form onSubmit={sendLogin} className='flex border-b-2 pb-3 gap-3 flex-col justify-center items-center'>
         <input name="email" value={formData.email} onChange={handleChange} className='border w-full rounded-lg outline-none p-2' type='email' placeholder='email'/>
         <input name="password" value={formData.password} onChange={handleChange} className='border w-full rounded-lg outline-none p-2' type='password' placeholder='password'/>
-          <button className='bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition'>
+          <button disabled={loading} className='bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition'>
             
             {
               loading ? "loading..." : "Log In"

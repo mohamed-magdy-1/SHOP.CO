@@ -19,7 +19,7 @@ export default function Cards({data,title,border,button}) {
               <Image
               key={item.id}
               className="w-full h-full object-contain"
-              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}` + item?.imgProduct[0]?.url}
+              src={item?.imgProduct[0]?.url}
               alt="BannerBlack-photo"
               width={200}
               height={200}

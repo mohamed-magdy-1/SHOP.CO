@@ -117,7 +117,7 @@ export default function Register() {
             placeholder="Confirm Password"
             required
           />
-          <button className="bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition">
+          <button disabled={loading} className="bg-blue-500 text-white rounded-lg p-2 w-full hover:bg-blue-600 transition">
             
             {
               loading ? "loading..." : "Register"

@@ -68,13 +68,6 @@ export default function Header() {
         return () => debouncedFetchData.cancel();
     }, [search, debouncedFetchData]);
 
-useEffect(()=>{
-    if(num !== num){
-        setNumProduct(num)
-    }
-},[])
-
-
 
 
     return (
@@ -136,7 +129,7 @@ useEffect(()=>{
                             <CiSearch className="flex text-3xl cursor-pointer hover:scale-110 duration-300 ease-in-out lg:hidden" />
                             <Link href={`${process.env.NEXT_PUBLIC_STRAPI_URL}/cart`} className="flex cursor-pointer hover:scale-110 duration-300 ease-in-out relative">
                                 <span className="bg-black w-[17px] h-[17px] left-[15px] absolute text-white flex justify-center items-center text-[11px] rounded-full">
-                                    { numProduct || 0}
+                                    { cartProduct.length || 0}
                                 </span>
                                 <CiShoppingCart className="text-3xl" />
                             </Link>

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function middleware(req) {
-  const backendUrl = 'https://your-backend-url.com/api/health'; // ضع رابط Strapi
+  const backendUrl = 'https://shop-co-back-end.onrender.com/api/header'; // ضع رابط Strapi
   const timeout = 5000; // 5 ثوانٍ كحد أقصى
 
   const controller = new AbortController();

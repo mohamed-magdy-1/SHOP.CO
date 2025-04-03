@@ -1,14 +1,21 @@
 import { NextResponse } from 'next/server';
 
 export async function middleware(req) {
-  const backendUrl = 'https://shop-co-back-end.onrender.com/api/header'; // استبدل بعنوان API الخاص بك
+  const backendUrl = 'https://your-backend-url.com/api/health'; // ضع رابط Strapi
+  const timeout = 5000; // 5 ثوانٍ كحد أقصى
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
 
   try {
-    const res = await fetch(backendUrl);
+    const res = await fetch(backendUrl, { signal: controller.signal });
+    clearTimeout(timeoutId);
+
     if (!res.ok) throw new Error('Backend Down');
     return NextResponse.next(); // السماح بالتحميل إذا كان السيرفر يعمل
   } catch (error) {
-    return NextResponse.rewrite(new URL('/server-down', req.url)); // توجيه المستخدم إلى صفحة الخطأ
+    console.error("Backend is down:", error.message);
+    return NextResponse.rewrite(new URL('/server-down', req.url)); // توجيه المستخدم لصفحة الخطأ
   }
 }
 

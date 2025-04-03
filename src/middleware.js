@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function middleware(req) {
-  const backendUrl = 'https://shop-co-back-end.onrender.com/api/hader'; // استبدل بعنوان API الخاص بك
+  const backendUrl = 'https://shop-co-back-end.onrender.com/api/header'; // استبدل بعنوان API الخاص بك
 
   try {
     const res = await fetch(backendUrl);
